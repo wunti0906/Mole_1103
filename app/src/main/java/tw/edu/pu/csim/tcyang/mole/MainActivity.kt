@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,7 +40,7 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun MoleScreen() {
-    var counter by remember { mutableLongStateOf(0) }
+    var counter by rememberSaveable { mutableLongStateOf(0) }
     Box (
         modifier = Modifier.fillMaxSize(),
         Alignment.Center
@@ -51,7 +52,7 @@ fun MoleScreen() {
         painter = painterResource(id = R.drawable.mole),
         contentDescription = "地鼠",
         modifier = Modifier
-            .offset { IntOffset(50, 200) }
+            .offset { IntOffset(600, 800) }
             .size(150.dp)
             .clickable { counter++ }
     )
