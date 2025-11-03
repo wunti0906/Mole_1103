@@ -42,12 +42,14 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MoleScreen(moleViewModel: MoleViewModel = viewModel()) {
     val counter =  moleViewModel.counter
+    val stay = moleViewModel.stay
+
     //var counter by rememberSaveable { mutableLongStateOf(0) }
     Box (
         modifier = Modifier.fillMaxSize(),
         Alignment.Center
     ) {
-        Text(counter.toString())
+        Text("分數: $counter \n時間: $stay")
     }
 
     Image(
